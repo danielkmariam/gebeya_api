@@ -1,4 +1,4 @@
-from db import db
+from src.db import db
 
 
 class UserModel(db.Model):
@@ -16,6 +16,10 @@ class UserModel(db.Model):
     @classmethod
     def find_by_email(cls, email):
         return cls.query.filter_by(email=email).first()
+
+    @classmethod
+    def find_by_id(cls, _id):
+        return cls.query.filter_by(id=_id).first()
 
     def save(self):
         db.session.add(self)
