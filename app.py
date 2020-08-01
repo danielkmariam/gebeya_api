@@ -4,13 +4,13 @@ from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
 
-from instance.config import app_config
+from config.config import app_config
 from src.resources.user import UserRegister
 from security import authenticate, identity
 
 app = Flask(__name__)
 app.config.from_object(app_config[os.getenv('APP_ENV')])
-app.config.from_pyfile('instance/config.py')
+app.config.from_pyfile('config/config.py')
 
 api = Api(app)
 
